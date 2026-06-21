@@ -1,26 +1,17 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
-S0 = 100
-mu = 0.08
-sigma = 0.2
-T = 1
-N = 252
-M = 100
+def simulate_gbm(S0, mu, sigma, T, N, M):
+    dt = T/N
+    Z = np.random.randn(M, N)
 
-dt = T / N
+    returns = (
+        (mu - 0.5 * sigma**2)*dt
+        + sigma*np.sqrt(dt)*Z
+    )
 
-Z = np.random.randn(M, N)
+    price_paths = S0 *np.exp(np.cumsum(returns, axis=1))
+    price_paths = np.hstack([S0 * np.ones((M, 1)), price_paths])
 
-returns = (
-    (mu - 0.5 * sigma**2) * dt
-    + sigma * np.sqrt(dt) * Z
-)
-
-price_paths = S0 * np.exp(np.cumsum(returns, axis=1))
-
-plt.plot(price_paths.T, linewidth=0.5)
-plt.title("Vectorized GBM Simulation")
-plt.xlabel("Time Step")
-plt.ylabel("Price")
-plt.show()
+    t = np.linspace(0, T,N + 1)
+    ST = price_paths[:, -1]
+    return t, price_paths, ST
