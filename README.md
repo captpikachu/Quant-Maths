@@ -1,16 +1,15 @@
-# QuantMath — Stochastic Processes & Option Pricing
+# QuantMath —  Option Pricing
 
-An interactive Streamlit app that builds European option pricing from the
-ground up: Brownian motion → Geometric Brownian Motion → Monte Carlo pricing
-with statistical error analysis.
+Extending the learning to build European option pricing from the
+ground up: Brownian motion → Geometric Brownian Motion → Monte Carlo pricing.
 
 ## Features
 
 - **Brownian Motion** — simulate the Wiener process from a scaled random walk.
 - **Geometric Brownian Motion** — simulate stock price paths and view the
-  lognormal terminal-price distribution, with the Ito's-lemma derivation.
+  lognormal price distribution.
 - **Monte Carlo Pricing** — price European **calls and puts** under the
-  risk-neutral measure, calculate standard error & 95% confidence intervals, and visualise convergence with statistical error bands.
+  risk-neutral measure, calculate standard error & 95% confidence intervals.
 
 ## Math at a glance
 
@@ -27,11 +26,10 @@ S_t = S_0 e^{(\mu - \frac12\sigma^2)t + \sigma W_t}$
 
 ```
 quantmath/
-├── app.py                  # Streamlit UI (3 tabs)
+├── app.py                  # 
 ├── Brownian_motion.py      # simulate_bm
 ├── GBM.py                  # simulate_gbm
 ├── MonteCarloPricing.py    # MC call/put + convergence & standard errors
-├── requirements.txt
 └── README.md
 ```
 
@@ -44,12 +42,6 @@ streamlit run app.py
 
 Opens at `http://localhost:8501`.
 
-## Example (S0 = K = 100, r = 5%, σ = 20%, T = 1, Option = Call)
-
-For $M = 100,000$ simulations, the price estimate might yield:
-- **Price Estimate:** `≈ 10.45`
-- **Standard Error:** `≈ 0.05`
-- **95% Confidence Interval:** `[≈ 10.35, ≈ 10.55]`
 
 ## Possible next steps
 
