@@ -36,16 +36,11 @@ quantmath/
 ## Run
 
 ```bash
-pip install -r requirements.txt
 streamlit run app.py
 ```
-
-Opens at `http://localhost:8501`.
-
 
 ## Possible next steps
 
 - Variance reduction (antithetic variates) for faster convergence
 - Path-dependent options (Asian, barrier) using the full GBM paths
 - Black-Scholes closed-form benchmarking (comparing MC with the analytical formula)
-- Option Greeks (sensitivities like delta, gamma, vega) using finite difference methods
