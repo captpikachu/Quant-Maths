@@ -38,6 +38,10 @@ quantmath/
 ```bash
 streamlit run app.py
 ```
+#Requirements
+- streamlit
+- numpy
+- matplotlib
 
 ## Possible next steps
 
