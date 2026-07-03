@@ -44,7 +44,4 @@ streamlit run app.py
 - matplotlib
 
 ## Possible next steps
-
-- Variance reduction (antithetic variates) for faster convergence
-- Path-dependent options (Asian, barrier) using the full GBM paths
 - Black-Scholes closed-form benchmarking (comparing MC with the analytical formula)
